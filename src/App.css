@@ -1,0 +1,24 @@
+:root {
+    --primary: rgb(50, 0, 0);
+}
+
+text {
+    stroke-width: 0;
+    fill: currentColor;
+}
+line {
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-opacity: 0.2;
+}
+
+.text-right {
+    text-anchor: end;
+}
+.text-left {
+    text-anchor: start;
+}
+.font-bold {
+    font-weight: 600
+}
+

@@ -2,6 +2,13 @@
     --primary: rgb(50, 0, 0);
 }
 
+
+body {
+    font-family: system-ui, sans-serif;
+    color: var(--primary);
+    fill: var(--primary);
+}
+
 text {
     stroke-width: 0;
     fill: currentColor;
@@ -11,6 +18,10 @@ line {
     stroke-width: 2;
     stroke-opacity: 0.2;
 }
+line.stroke-3 {
+    stroke-width: 3;
+}
+
 
 .text-right {
     text-anchor: end;
@@ -22,3 +33,10 @@ line {
     font-weight: 600
 }
 
+.expanded {
+    transform-origin: 1% 1%;
+
+}
+.line-through {
+    text-decoration: line-through;
+}

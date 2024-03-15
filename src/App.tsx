@@ -1,9 +1,9 @@
 import Big from "big.js"
 import clsx from "clsx"
 import * as d3 from "d3"
-import { useLayoutEffect, useReducer, useRef } from "react"
+import { useEffect, useReducer, useRef } from "react"
 import "./App.css"
-import { Hierarchy, expenses } from "./data"
+import { Hierarchy } from "./data"
 
 // const isHierarchy = (obj: unknown): obj is FinalBranch => {
 //   if (obj == null) {
@@ -64,7 +64,6 @@ const appendCell = ({
   svg
     .append("g")
     .attr("transform", `translate(${x},${y})`)
-
     .append("line")
     .attr("x1", 0)
     .attr("x2", w)
@@ -130,7 +129,7 @@ const appendSection = (
       const subGroup = group[firstKey] as Hierarchy
       const sum = sumGroupRows(subGroup)
       const row = curry.rowIndex++
-      console.log(row)
+      // console.log(row)
       appendRow({ svg, row, values: [firstKey, sum], className: "font-bold" })
       const x = svg.append("g").attr("transform", `translate(${0},${getY(row)})`)
       appendSection(subGroup, x, curry)
@@ -167,34 +166,23 @@ const ExpensesPlot = ({
 
   const viewData = data
 
-  useLayoutEffect(() => {
-    const svg = d3
-      .create("svg")
-      .attr("width", widthViewport)
-      .attr("height", heightViewport)
-      .attr("viewBox", [0, 0, widthViewport, heightViewport])
-      .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
-
-    appendSection(viewData, svg, { rowIndex: 0, sum: 0 })
-
-    container.current?.replaceChildren(svg.node()!)
-  }, [viewData, heightViewport, widthViewport])
+  // useLayoutEffect(() => {
+  //   const svg = d3
+  //     .create("svg")
+  //     .attr("width", widthViewport)
+  //     .attr("height", heightViewport)
+  //     .attr("viewBox", [0, 0, widthViewport, heightViewport])
+  //     .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
+  //   appendSection(viewData, svg, { rowIndex: 0, sum: 0 })
+  //   container.current?.replaceChildren(svg.node()!)
+  // }, [viewData, heightViewport, widthViewport])
 
   return <div className="view" ref={container}></div>
 }
 
 const App = () => {
-  return (
-    <div
-      className="plot"
-      style={{
-        fontFamily: "system-ui, sans-serif",
-        color: "var(--primary)",
-        fill: "var(--primary)",
-      }}
-    >
-      <ExpensesPlot data={expenses} />
-    </div>
-  )
+  useEffect(() => {}, [])
+
+  return <div className="plot">{/* <ExpensesPlot data={expenses} /> */}</div>
 }
 export default App

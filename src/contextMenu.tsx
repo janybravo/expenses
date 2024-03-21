@@ -9,7 +9,7 @@ type RowInfo = null | {
   element: SVGElement
   node: ExtendedHierarchyNode
 }
-type OnChangeType = "subtract" | "sum" | "ignore" | null
+export type OnChangeType = "subtract" | "sum" | "ignore" | null
 
 const Menu = ({
   rowInfo,
@@ -33,7 +33,6 @@ const Menu = ({
 
   return (
     <MuiMenu
-      id="basic-menu"
       anchorEl={rowInfo?.element}
       open={isOpen}
       onClose={() => setIsOpen(false)}

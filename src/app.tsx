@@ -1,23 +1,17 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
 import "./app.css"
-import ContextMenu from "./contextMenu"
+import ContextMenu, { OnChangeType } from "./contextMenu"
 import { expensesHierarchy } from "./data"
 import ExpandableList from "./expendableList"
 import { ExtendedHierarchyNode } from "./types"
 
 const App = () => {
-  useReducer(
-    (state) => {
-      return state
-    },
-    {} as Record<string, boolean>,
-  )
   const [rowInfo, setRowInfo] = useState<null | {
     element: SVGElement
     node: ExtendedHierarchyNode
   }>(null)
 
-  const onNodeFactorChange = (type) => {
+  const onNodeFactorChange = (type: OnChangeType) => {
     setRowInfo(null)
     if (!rowInfo || type == null) {
       return
@@ -58,4 +52,5 @@ const App = () => {
     </>
   )
 }
+
 export default App

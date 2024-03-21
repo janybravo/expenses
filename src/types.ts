@@ -11,5 +11,13 @@ export type D3H = {
 }
 
 export interface OnClick {
-  (e: MouseEvent, node: d3.HierarchyNode<D3H>): void
+  (e: MouseEvent, node: ExtendedHierarchyNode): void
+}
+
+export type ExtendedHierarchyNode = d3.HierarchyNode<D3H> & {
+  x: number
+  y: number
+  factor?: number
+  value?: number
+  id: string
 }

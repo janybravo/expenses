@@ -1,5 +1,5 @@
 :root {
-    --primary: rgb(50, 0, 0);
+    --primary: rgb(0, 0, 0);
 }
 
 
@@ -15,14 +15,16 @@ text {
 }
 line {
     stroke: currentColor;
-    stroke-width: 2;
+    stroke-width: 1;
     stroke-opacity: 0.2;
 }
 line.stroke-3 {
     stroke-width: 3;
 }
 
-
+.row {
+    cursor: pointer;
+}
 .text-right {
     text-anchor: end;
 }
@@ -39,4 +41,15 @@ line.stroke-3 {
 }
 .line-through {
     text-decoration: line-through;
+}
+.minus {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+.menu-icon {
+    width: 1rem;
+    height: 1rem;
 }

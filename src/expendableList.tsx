@@ -136,6 +136,6 @@ export const ExpandableList = ({
       )
   }, [data, lineHeight, onClick])
 
-  return <svg ref={svgRef} width="300" height="400"></svg>
+  return <svg ref={svgRef} role="figure" aria-label="expenses" width="300" height="400"></svg>
 }
 export default ExpandableList

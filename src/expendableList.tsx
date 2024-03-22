@@ -13,7 +13,7 @@ export const ExpandableList = ({
   const rowGap = 12
   const lineHeight = textHeight
   const lineOffset = 8
-  const columnWidth = 50
+  const columnWidth = 100
   const columnGap = 10
   const iconWidth = 15
 
@@ -136,6 +136,15 @@ export const ExpandableList = ({
       )
   }, [data, lineHeight, onClick])
 
-  return <svg ref={svgRef} role="figure" aria-label="expenses" width="300" height="400"></svg>
+  return (
+    <svg
+      ref={svgRef}
+      role="figure"
+      aria-label="expenses"
+      width="300"
+      height="100%"
+      style={{ height: "calc(100vh - 3rem)" }}
+    ></svg>
+  )
 }
 export default ExpandableList

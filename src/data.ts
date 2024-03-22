@@ -27,7 +27,16 @@ export const expenses: Hierarchy[] = [
         Dec: 97.2,
       },
       {
-        Jan: [{ "1": 111.1 }],
+        Jan: [
+          { "1": 111.1 },
+          ...Array(1e4)
+            .fill(null)
+            .map((_x, index) => {
+              return {
+                [`X${index}`]: Math.round(Math.random() * 100) / 10,
+              }
+            }),
+        ],
       },
     ],
   },
